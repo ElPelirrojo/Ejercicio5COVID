@@ -20,6 +20,8 @@ public class FrameAdmin extends javax.swing.JFrame {
     panelAlta pAlta;
     panelCambiarContra pnlCambiarAdmin;
     panelBaja pBaja;
+    panelEnviarMensajesA pEnviar;
+    panelCorreoA pRecibidos;
     
     /**
      * Creates new form FrameAdmin
@@ -48,6 +50,8 @@ public class FrameAdmin extends javax.swing.JFrame {
         jMenu4 = new javax.swing.JMenu();
         mnuContraAdmin = new javax.swing.JMenuItem();
         jMenu3 = new javax.swing.JMenu();
+        mnuRecibidos = new javax.swing.JMenuItem();
+        mnuEnviar = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
         mnuDesconectar = new javax.swing.JMenuItem();
         mnuSalir = new javax.swing.JMenuItem();
@@ -75,7 +79,7 @@ public class FrameAdmin extends javax.swing.JFrame {
         });
         jMenu1.add(mnuAlta);
 
-        mnuBaja.setText("Baja");
+        mnuBaja.setText("Baja-Consulta");
         mnuBaja.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 mnuBajaActionPerformed(evt);
@@ -98,6 +102,23 @@ public class FrameAdmin extends javax.swing.JFrame {
         jMenuBar1.add(jMenu4);
 
         jMenu3.setText("Mensajes");
+
+        mnuRecibidos.setText("Mensajes Recibidos");
+        mnuRecibidos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mnuRecibidosActionPerformed(evt);
+            }
+        });
+        jMenu3.add(mnuRecibidos);
+
+        mnuEnviar.setText("Enviar Mensajes");
+        mnuEnviar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mnuEnviarActionPerformed(evt);
+            }
+        });
+        jMenu3.add(mnuEnviar);
+
         jMenuBar1.add(jMenu3);
 
         jMenu2.setText("Salir");
@@ -164,6 +185,20 @@ public class FrameAdmin extends javax.swing.JFrame {
         pack();
     }//GEN-LAST:event_mnuBajaActionPerformed
 
+    private void mnuEnviarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuEnviarActionPerformed
+        eliminarPaneles();
+        pEnviar = new panelEnviarMensajesA(miEmpresa,usuariovalidado);
+        getContentPane().add(pEnviar);
+        pack();
+    }//GEN-LAST:event_mnuEnviarActionPerformed
+        
+    private void mnuRecibidosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuRecibidosActionPerformed
+        eliminarPaneles();
+        pRecibidos  = new panelCorreoA(miEmpresa,usuariovalidado);
+        getContentPane().add(pRecibidos);
+        pack();
+    }//GEN-LAST:event_mnuRecibidosActionPerformed
+
     private void eliminarPaneles(){
         try{
             getContentPane().remove(pnlCambiar);
@@ -179,6 +214,14 @@ public class FrameAdmin extends javax.swing.JFrame {
         
         try{
             getContentPane().remove(pBaja);
+        }catch(Exception ex){}
+        
+        try{
+            getContentPane().remove(pEnviar);
+        }catch(Exception ex){}
+        
+        try{
+            getContentPane().remove(pRecibidos);
         }catch(Exception ex){}
     }
     
@@ -198,6 +241,8 @@ public class FrameAdmin extends javax.swing.JFrame {
     private javax.swing.JMenuItem mnuCambiarContra;
     private javax.swing.JMenuItem mnuContraAdmin;
     private javax.swing.JMenuItem mnuDesconectar;
+    private javax.swing.JMenuItem mnuEnviar;
+    private javax.swing.JMenuItem mnuRecibidos;
     private javax.swing.JMenuItem mnuSalir;
     // End of variables declaration//GEN-END:variables
 }

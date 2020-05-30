@@ -32,7 +32,7 @@
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="mnuBaja">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Baja"/>
+                <Property name="text" type="java.lang.String" value="Baja-Consulta"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="mnuBajaActionPerformed"/>
@@ -59,6 +59,24 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Mensajes"/>
           </Properties>
+          <SubComponents>
+            <MenuItem class="javax.swing.JMenuItem" name="mnuRecibidos">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Mensajes Recibidos"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="mnuRecibidosActionPerformed"/>
+              </Events>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="mnuEnviar">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Enviar Mensajes"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="mnuEnviarActionPerformed"/>
+              </Events>
+            </MenuItem>
+          </SubComponents>
         </Menu>
         <Menu class="javax.swing.JMenu" name="jMenu2">
           <Properties>

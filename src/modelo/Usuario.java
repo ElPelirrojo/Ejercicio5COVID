@@ -5,6 +5,7 @@
  */
 package modelo;
 
+import java.util.ArrayList;
 import java.util.Objects;
 
 /**
@@ -17,12 +18,19 @@ public class Usuario {
     private String contra;
     private boolean admin;
     private String correo;
+    private ArrayList<Mensaje>mensajes;
 
     public Usuario(String usuario, String contra, boolean admin, String correo) {
         this.usuario = usuario;
         this.contra = contra;
         this.admin = admin;
         this.correo = correo;
+        mensajes = new ArrayList<>();
+        //nuevoMensaje("hola","sdaf","asdf","asdf");
+    }
+    
+    public void nuevoMensaje(String fecha, String asunto, String contenido, String emisor){
+        mensajes.add(new Mensaje(fecha,asunto,contenido,emisor));
     }
 
     public Usuario(String usuario) {
@@ -60,6 +68,14 @@ public class Usuario {
     public void setCorreo(String correo) {
         this.correo = correo;
     }
+    
+     public ArrayList<Mensaje> getMensajes() {
+        return mensajes;
+    }
+     
+    public void setMensajes(ArrayList<Mensaje> mensajes) {
+        this.mensajes = mensajes;
+    }
 
     @Override
     public int hashCode() {
@@ -84,6 +100,4 @@ public class Usuario {
         }
         return true;
     }
-    
-    
 }

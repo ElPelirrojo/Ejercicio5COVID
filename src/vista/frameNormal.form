@@ -24,15 +24,21 @@
             <Property name="text" type="java.lang.String" value="Mensaje"/>
           </Properties>
           <SubComponents>
-            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem1">
+            <MenuItem class="javax.swing.JMenuItem" name="mnuRecibidos">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Mensajes recibidos"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="mnuRecibidosActionPerformed"/>
+              </Events>
             </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem2">
+            <MenuItem class="javax.swing.JMenuItem" name="mnuEnviar">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Enviar mensajes"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="mnuEnviarActionPerformed"/>
+              </Events>
             </MenuItem>
           </SubComponents>
         </Menu>

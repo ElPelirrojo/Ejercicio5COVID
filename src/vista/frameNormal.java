@@ -16,6 +16,8 @@ public class frameNormal extends javax.swing.JFrame {
     
     Empresa miEmpresa;
     panelCambiarContra pnlCambiar;
+    panelEnviarMensajesA pEnviar;
+    panelCorreoA pRecibidos;
     Usuario usuariovalidado;
 
     /**
@@ -40,8 +42,8 @@ public class frameNormal extends javax.swing.JFrame {
         jMenu1 = new javax.swing.JMenu();
         mnuCambiarClave = new javax.swing.JMenuItem();
         jMenu3 = new javax.swing.JMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
-        jMenuItem2 = new javax.swing.JMenuItem();
+        mnuRecibidos = new javax.swing.JMenuItem();
+        mnuEnviar = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
         mnuDesconectar = new javax.swing.JMenuItem();
         mnuSalir = new javax.swing.JMenuItem();
@@ -63,11 +65,21 @@ public class frameNormal extends javax.swing.JFrame {
 
         jMenu3.setText("Mensaje");
 
-        jMenuItem1.setText("Mensajes recibidos");
-        jMenu3.add(jMenuItem1);
+        mnuRecibidos.setText("Mensajes recibidos");
+        mnuRecibidos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mnuRecibidosActionPerformed(evt);
+            }
+        });
+        jMenu3.add(mnuRecibidos);
 
-        jMenuItem2.setText("Enviar mensajes");
-        jMenu3.add(jMenuItem2);
+        mnuEnviar.setText("Enviar mensajes");
+        mnuEnviar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mnuEnviarActionPerformed(evt);
+            }
+        });
+        jMenu3.add(mnuEnviar);
 
         jMenuBar1.add(jMenu3);
 
@@ -113,13 +125,33 @@ public class frameNormal extends javax.swing.JFrame {
         getContentPane().add(pnlCambiar);
         pack();
     }//GEN-LAST:event_mnuCambiarClaveActionPerformed
+
+    private void mnuEnviarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuEnviarActionPerformed
+        eliminarPaneles();
+        pEnviar = new panelEnviarMensajesA(miEmpresa,usuariovalidado);
+        getContentPane().add(pEnviar);
+        pack();
+    }//GEN-LAST:event_mnuEnviarActionPerformed
+
+    private void mnuRecibidosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuRecibidosActionPerformed
+        eliminarPaneles();
+        pRecibidos = new panelCorreoA(miEmpresa,usuariovalidado);
+        getContentPane().add(pRecibidos);
+        pack();
+    }//GEN-LAST:event_mnuRecibidosActionPerformed
     
     private void eliminarPaneles(){
         try{
             getContentPane().remove(pnlCambiar);
-        }catch(Exception ex){
-            
-        }
+        }catch(Exception ex){}
+        
+        try{
+            getContentPane().remove(pEnviar);
+        }catch(Exception ex){}
+        
+        try{
+            getContentPane().remove(pRecibidos);
+        }catch(Exception ex){}
     }
     
 
@@ -128,10 +160,10 @@ public class frameNormal extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem mnuCambiarClave;
     private javax.swing.JMenuItem mnuDesconectar;
+    private javax.swing.JMenuItem mnuEnviar;
+    private javax.swing.JMenuItem mnuRecibidos;
     private javax.swing.JMenuItem mnuSalir;
     // End of variables declaration//GEN-END:variables
 }

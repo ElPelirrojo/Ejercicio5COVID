@@ -125,11 +125,14 @@ public class panelBaja extends javax.swing.JPanel {
                     "ELIMINAR USUARIO", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
             if(confirmacion == 0){
                 miEmpresa.getUsuarios().remove(pos);
-                //cargarUsuarios();
+                modelo.removeRow(pos);
             }
         }
     }//GEN-LAST:event_tblUsuariosMouseClicked
-
+    
+    private void actualizarTabla(){
+        
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;

@@ -34,6 +34,7 @@ public class Principal extends javax.swing.JFrame {
     private void crearUsuarios(){
         miEmpresa.nuevoUsuario("1", "1", true, "alex");
         miEmpresa.nuevoUsuario("2", "2", false, "aytiana");
+        miEmpresa.nuevoUsuario("3", "3", true, "lorena");
     }
 
     /**
