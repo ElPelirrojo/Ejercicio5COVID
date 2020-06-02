@@ -6,7 +6,9 @@
 package vista;
 
 import controlador.Empresa;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
 import modelo.Mensaje;
@@ -36,6 +38,9 @@ public class panelEnviarMensajesA extends javax.swing.JPanel {
         modelo = new DefaultComboBoxModel();
         cmbDestinatario.setModel(modelo);
         cargarDestinatarios();
+        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+        String fecha = sdf.format(new Date());
+        txtFecha.setText(fecha);
     }
     
     private void cargarDestinatarios(){
@@ -90,6 +95,11 @@ public class panelEnviarMensajesA extends javax.swing.JPanel {
         });
 
         btnCancelar.setText("CANCELAR");
+        btnCancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCancelarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -152,6 +162,7 @@ public class panelEnviarMensajesA extends javax.swing.JPanel {
             if(!txtAsunto.getText().equals("")){
                 if(!txtContenido.getText().equals("")){
                     miEmpresa.getUsuarios().get(pos - 1).nuevoMensaje(fecha, asunto, contenido, usuariovalidado.getCorreo());
+                    JOptionPane.showMessageDialog(this, "El mensaje a sido enviado", "informacion", JOptionPane.INFORMATION_MESSAGE);
                     limpiar();
                 }else{
                     JOptionPane.showMessageDialog(this, "El mensaje tiene que tener un contenido", "error", JOptionPane.ERROR_MESSAGE);
@@ -163,12 +174,19 @@ public class panelEnviarMensajesA extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(this, "hay que seleccionar un destinatario", "error", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_btnEnviarActionPerformed
+
+    private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
+        limpiar();
+    }//GEN-LAST:event_btnCancelarActionPerformed
     
     private void limpiar(){
         txtAsunto.setText("");
         txtFecha.setText("");
         txtContenido.setText("");
         cmbDestinatario.setSelectedIndex(0);
+        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+        String fecha = sdf.format(new Date());
+        txtFecha.setText(fecha);
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

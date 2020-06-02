@@ -121,21 +121,16 @@ public class pnlContraseñaAdmin extends javax.swing.JPanel {
         String passNueva = new String(pwdNueva.getPassword());
         String passRepe = new String(pwdrepe.getPassword());
         int pos = miEmpresa.buscarPosicionUsuario(passActual);
-        if(pos == -1){
+        if(!usuariovalidado.getContra().equalsIgnoreCase(passActual)){
                 JOptionPane.showMessageDialog(this, "La contraseña acutual no coincide", "ventana informacion", JOptionPane.ERROR_MESSAGE);
                 limpiar();
         }else{
-            if(passActual.equalsIgnoreCase(miEmpresa.getUsuarios().get(pos).getContra())
-                    && usuariovalidado.getUsuario().equalsIgnoreCase(miEmpresa.getUsuarios().get(pos).getUsuario())){
-                if(passRepe.equalsIgnoreCase(passNueva)){
-                    miEmpresa.getUsuarios().get(pos).setContra(passNueva);
-                    JOptionPane.showMessageDialog(this, "La contraseña se a cambiado", "ventana informacion", JOptionPane.INFORMATION_MESSAGE);
-                    limpiar();
-                }else{
-                    JOptionPane.showMessageDialog(this, "la contraseña no coincide", "error", JOptionPane.ERROR_MESSAGE);
-                }
+            if(passRepe.equalsIgnoreCase(passNueva)){
+                miEmpresa.getUsuarios().get(pos).setContra(passNueva);
+                JOptionPane.showMessageDialog(this, "La contraseña se a cambiado", "ventana informacion", JOptionPane.INFORMATION_MESSAGE);
+                limpiar();
             }else{
-                JOptionPane.showMessageDialog(this, "esta contraseña no es la suya", "error", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(this, "la contraseña no coincide", "error", JOptionPane.ERROR_MESSAGE);
             }
         }
     }//GEN-LAST:event_btnAceptarActionPerformed

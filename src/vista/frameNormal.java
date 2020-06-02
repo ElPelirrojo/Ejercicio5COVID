@@ -15,7 +15,7 @@ import modelo.Usuario;
 public class frameNormal extends javax.swing.JFrame {
     
     Empresa miEmpresa;
-    panelCambiarContra pnlCambiar;
+    pnlContraseñaAdmin pnlCambiar;
     panelEnviarMensajesA pEnviar;
     panelCorreoA pRecibidos;
     Usuario usuariovalidado;
@@ -121,7 +121,7 @@ public class frameNormal extends javax.swing.JFrame {
 
     private void mnuCambiarClaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuCambiarClaveActionPerformed
         eliminarPaneles();
-        pnlCambiar = new panelCambiarContra(miEmpresa,usuariovalidado);
+        pnlCambiar = new pnlContraseñaAdmin(miEmpresa,usuariovalidado);
         getContentPane().add(pnlCambiar);
         pack();
     }//GEN-LAST:event_mnuCambiarClaveActionPerformed

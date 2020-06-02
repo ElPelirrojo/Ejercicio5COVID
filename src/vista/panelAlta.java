@@ -139,23 +139,32 @@ public class panelAlta extends javax.swing.JPanel {
         }else if(txtAdmin.getText().equalsIgnoreCase("no")){
             admin = false;
         }
-        if(!txtAdmin.getText().equals("")){
-            Usuario a = new Usuario(usuario);
-            int pos = miEmpresa.getUsuarios().indexOf(a);
-            if(pos == -1){
-                if(repe.equalsIgnoreCase(contra)){
-                    miEmpresa.nuevoUsuario(usuario, contra, admin, correo);
-                    JOptionPane.showMessageDialog(this, "Se ha añadido al usuario", "ventana informacion", JOptionPane.INFORMATION_MESSAGE);
-                    limpiar();
+        if(!txtLogin.getText().equals("")){
+            if(!txtAdmin.getText().equals("")){
+                Usuario a = new Usuario(usuario);
+                int pos = miEmpresa.getUsuarios().indexOf(a);
+                if(pos == -1){
+                    if(repe.equalsIgnoreCase(contra)){
+                        int existe = miEmpresa.buscarCorreo(correo);
+                        if(existe == -1){
+                            miEmpresa.nuevoUsuario(usuario, contra, admin, correo);
+                            JOptionPane.showMessageDialog(this, "Se ha añadido al usuario", "ventana informacion", JOptionPane.INFORMATION_MESSAGE);
+                            limpiar();
+                        }else{
+                            JOptionPane.showMessageDialog(this, "Este correo ya esta cogido", "error", JOptionPane.ERROR_MESSAGE);
+                        }
+                    }else{
+                        JOptionPane.showMessageDialog(this, "La contraseña no coincide", "error", JOptionPane.ERROR_MESSAGE);
+                    }
                 }else{
-                    JOptionPane.showMessageDialog(this, "La contraseña no coincide", "error", JOptionPane.ERROR_MESSAGE);
+                    JOptionPane.showMessageDialog(this, "el usuario ya existe", "error", JOptionPane.ERROR_MESSAGE);
+                    limpiar();
                 }
             }else{
-                JOptionPane.showMessageDialog(this, "el usuario ya existe", "error", JOptionPane.ERROR_MESSAGE);
-                limpiar();
+                JOptionPane.showMessageDialog(this, "la casilla de administrador es obligatoria", "error", JOptionPane.ERROR_MESSAGE);
             }
         }else{
-            JOptionPane.showMessageDialog(this, "la casilla de administrador es obligatoria", "error", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(this, "Tiene que introducir un usuario", "error", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_btnAceptarActionPerformed
     

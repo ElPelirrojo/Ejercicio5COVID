@@ -18,7 +18,7 @@ public class FrameAdmin extends javax.swing.JFrame {
     pnlCambiarContraAdmin pnlCambiar;
     Usuario usuariovalidado;
     panelAlta pAlta;
-    panelCambiarContra pnlCambiarAdmin;
+    pnlContraseñaAdmin pnlCambiarAdmin;
     panelBaja pBaja;
     panelEnviarMensajesA pEnviar;
     panelCorreoA pRecibidos;
@@ -173,7 +173,7 @@ public class FrameAdmin extends javax.swing.JFrame {
 
     private void mnuContraAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuContraAdminActionPerformed
         eliminarPaneles();
-        pnlCambiarAdmin = new panelCambiarContra(miEmpresa,usuariovalidado);
+        pnlCambiarAdmin = new pnlContraseñaAdmin(miEmpresa,usuariovalidado);
         getContentPane().add(pnlCambiarAdmin);
         pack();
     }//GEN-LAST:event_mnuContraAdminActionPerformed

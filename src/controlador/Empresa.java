@@ -48,76 +48,19 @@ public class Empresa {
         return pos;
     }
     
-    /* public boolean buscarUsuario(String login, String contra){
+    public int buscarCorreo(String correo){
         boolean encontrado = false;
         int pos = 0;
         while(pos < usuarios.size() && !encontrado){
-            if(usuarios.get(pos) != null){
-                if(login.equalsIgnoreCase(usuarios.get(pos).getUsuario())
-                        && contra.equalsIgnoreCase(usuarios.get(pos).getContra())){
-                    encontrado = true;
-                }else{
-                    pos++;
-                }
-            }else{
-                pos = usuarios.size();
-            }
-        }
-        return encontrado;
-    }
-    
-    public int nuevoUsuario(String login, String pass, boolean admin){
-        int pos = buscarPosicion();
-        if(pos == usuarios.size()){
-            pos = -1; //no tengo espacio
-        }else{
-            if(buscarUsuario(login,pass)){
-                pos = -2; //tengo espacio, pero ya existe
-            }else{
-                usuarios.add(pos, new Usuario(login,pass,admin));
-                pos = 0; //cuando lo e podido hacer
-            }
-        }
-        return pos;
-    }
-    
-    public int buscarPosicion(){
-        boolean encontrado = false;
-        int pos = 0;
-        while(pos < usuarios.size() && !encontrado){
-            if(usuarios.get(pos) == null){
+            if(correo.equalsIgnoreCase(usuarios.get(pos).getCorreo())){
                 encontrado = true;
             }else{
                 pos++;
             }
         }
+        if(!encontrado){
+            pos = -1;
+        }
         return pos;
     }
-    
-    
-
-    /*public Usuario[] getUsuarios() {
-        return usuarios;
-    }
-    
-    public int numeroElementos(){
-        return usuarios.size();
-    }
-    
-    public boolean saberAdmin(int pos){
-        return usuarios.get(pos).isAdmin(); 
-    }
-    
-    public String saberContra(int pos){
-        return usuarios.get(pos).getContra(); 
-    }
-    
-    public String saberUsuario(int pos){
-        return usuarios.get(pos).getUsuario(); 
-    }
-    
-    public void cambiarContra(int pos, String contra){
-        usuarios.get(pos).setContra(contra);
-    } */
-
 }

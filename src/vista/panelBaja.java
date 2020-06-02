@@ -43,16 +43,12 @@ public class panelBaja extends javax.swing.JPanel {
         boolean tengaselementos = true;
         int pos = 0;
         while(tengaselementos && pos < miEmpresa.getUsuarios().size()){
-            if(miEmpresa.getUsuarios().get(pos) != null){
-                Vector v = new Vector();
-                v.add(miEmpresa.getUsuarios().get(pos).getUsuario());
-                v.add(miEmpresa.getUsuarios().get(pos).getContra());
-                modelo.addRow(v); //al modelo añadele una fila con lo que tiene v
-                //que son los datos de antes
-                pos++;
-            }else{
-                tengaselementos = false;
-            }
+            Vector v = new Vector();
+            v.add(miEmpresa.getUsuarios().get(pos).getUsuario());
+            v.add(miEmpresa.getUsuarios().get(pos).getContra());
+            modelo.addRow(v); //al modelo añadele una fila con lo que tiene v
+            //que son los datos de antes
+            pos++;
         }
     }
 
@@ -116,8 +112,7 @@ public class panelBaja extends javax.swing.JPanel {
 
     private void tblUsuariosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblUsuariosMouseClicked
        int fila = tblUsuarios.rowAtPoint(evt.getPoint());
-       int columna = tblUsuarios.columnAtPoint(evt.getPoint());
-       String usuario = (String) modelo.getValueAt(fila, columna);
+       String usuario = (String) modelo.getValueAt(fila, 0);
        Usuario n = new Usuario(usuario);
        int pos = miEmpresa.getUsuarios().indexOf(n);
        if(pos != -1){
