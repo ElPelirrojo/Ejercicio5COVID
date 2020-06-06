@@ -45,11 +45,11 @@ public class panelEnviarMensajesA extends javax.swing.JPanel {
     
     private void cargarDestinatarios(){
         modelo.addElement("Selecciona un destinatario");
-        for (int i = 0; i < miEmpresa.getUsuarios().size(); i++) {
-            if (usuariovalidado != miEmpresa.getUsuarios().get(i)) {
-                modelo.addElement(miEmpresa.getUsuarios().get(i));
+        //if(modelo.getSize() == 0){
+            for(int i = 0;i < miEmpresa.getUsuarios().size();i++){
+                modelo.addElement(miEmpresa.getUsuarios().get(i).getCorreo());
             }
-        }
+        //}
     }
 
     /**
@@ -161,8 +161,7 @@ public class panelEnviarMensajesA extends javax.swing.JPanel {
         if(cmbDestinatario.getSelectedIndex() != 0){
             if(!txtAsunto.getText().equals("")){
                 if(!txtContenido.getText().equals("")){
-                    Usuario u = (Usuario) modelo.getElementAt(pos);
-                    u.nuevoMensaje(fecha, asunto, contenido, usuariovalidado.getCorreo());
+                    miEmpresa.getUsuarios().get(pos - 1).nuevoMensaje(fecha, asunto, contenido, usuariovalidado.getCorreo());
                     JOptionPane.showMessageDialog(this, "El mensaje a sido enviado", "informacion", JOptionPane.INFORMATION_MESSAGE);
                     limpiar();
                 }else{
