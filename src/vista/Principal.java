@@ -28,7 +28,7 @@ public class Principal extends javax.swing.JFrame {
     public Principal(Empresa miEmpresa) {
         initComponents();
         this.miEmpresa = miEmpresa;
-        crearUsuarios();
+        //crearUsuarios();
     }
     
     private void crearUsuarios(){
